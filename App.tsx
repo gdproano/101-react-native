@@ -14,8 +14,8 @@ export default function App() {
         source={{
           uri: 'https://reactnative.dev/img/tiny_logo.png',
         }} />
-      <Text style={styles.text}>Alinear los elementos de texto horizontalmente</Text>
-      <Text style={styles.text}>Centrar la imagen</Text>
+      <Text style={styles.text}>Distribuir los elementos de texto horizontalmente</Text>
+      <Text style={styles.text}>Centrar la imagen horizontalmente</Text>
       <Text style={styles.text}>Distribuir el espacio entre los elementos</Text>
       <Text style={styles.text}>Enviar el botón a la parte inferior</Text>
       <Text style={styles.text}>Cambiar el orden de los elementos</Text>
