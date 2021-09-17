@@ -1,29 +1,43 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
+import { getDigimon } from '../../api'
 
 export default class index extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-          message: 'this is the value',
+            message: 'this is the value',
+            error: 'No error',
+            data: []
         } // this is our initial data
-      }
+    }
 
-      static getDerivedStateFromProps(props, state) {
-        const {counter} = props;
+    static getDerivedStateFromProps(props, state) {
+        const { counter } = props;
+        console.log('state ', state);
         return {
             message: `the updated value is: ${counter}`,
         }
-      }
+    }
+
+    async componentDidMount() {
+        getDigimon(data => {
+            this.setState({ data});
+        }, () => {
+            this.setState({error: 'data retrieving error'});
+        });
+    }
 
     render() {
-        const {message} = this.state;
-        const {onPress} = this.props;
+        const { error, message } = this.state;
+        const { onPress } = this.props;
 
         return (
             <View>
                 <Text>{message}</Text>
-                <Button onPress={onPress} title="Press me"/>
+                <Text>{error}</Text>
+                <Text>{message}</Text>
+                <Button onPress={onPress} title="Press me" />
             </View>
         )
     }
