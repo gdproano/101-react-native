@@ -1,20 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import React, { useState , useEffect } from 'react';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const [counter1, setCounter1] = useState(0)
+
+  //Se renderiza el componenete
+  useEffect(()=>{
+    console.log('Efecto sin dependencias');    
+  })
+
+  //Solo se ejecutara
+  useEffect(()=>{
+    console.log('Efecto solo');    
+  },[])
+
+  //Efecto cuando una propiedad se actualizo 
+  useEffect(()=>{
+    console.log('Efecto con dependencias');    
+  },[counter1])
+
   return (
     <View style={styles.container}>
-      <Image
-        style={{
-          width: 50,
-          height: 50,
-          margin: 16,
-        }}
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }} />
-      <Text style={styles.text}>Welcome to the 101 React Native</Text>
+      <Text>CLick 1:{counter1}</Text>      
+      <Button title="Incrementar" onPress={() => setCounter1(counter1 + 1)}></Button>      
       <StatusBar style="auto" />
     </View>
   );
