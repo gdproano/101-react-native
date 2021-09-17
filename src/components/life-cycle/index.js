@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
 import { getDigimon } from '../../api'
+import Digimons from '../digimons';
 
 export default class index extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export default class index extends Component {
     }
 
     render() {
-        const { error, message } = this.state;
+        const { error, message, data } = this.state;
         const { onPress } = this.props;
 
         return (
@@ -38,6 +39,7 @@ export default class index extends Component {
                 <Text>{error}</Text>
                 <Text>{message}</Text>
                 <Button onPress={onPress} title="Press me" />
+                <Digimons digimons={data} />
             </View>
         )
     }
