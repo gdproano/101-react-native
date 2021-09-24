@@ -4,7 +4,6 @@ import { Image, Text, StyleSheet, View } from 'react-native'
 export default class digimon extends Component {
     render() {
         const { digimon } = this.props;
-
         return (
             <View style={styles.container}>
                 <Image
@@ -25,6 +24,6 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
     },
-    container:{ flex: 1, color: 'black', height: 180 },
+    container:{ flex: 1, height: 180, backgroundColor: '#fafafa', margin: 4 },
     textFields:{ flex: 1, color: 'black', height: 180 }
 })
